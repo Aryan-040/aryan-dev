@@ -6,6 +6,33 @@ import { useLenis } from '@/lib/scroll';
 
 type SoundState = 'blocked' | 'playing' | 'finished' | 'muted';
 
+const TAGLINE = 'Crafting scalable apps from backend to browser — with a touch of AI.';
+
+function useTypewriter(text: string, speed = 40, startDelay = 600) {
+  const [displayed, setDisplayed] = useState('');
+  const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    setDisplayed('');
+    setDone(false);
+    let i = 0;
+    const start = setTimeout(() => {
+      const tick = setInterval(() => {
+        i++;
+        setDisplayed(text.slice(0, i));
+        if (i >= text.length) {
+          clearInterval(tick);
+          setDone(true);
+        }
+      }, speed);
+      return () => clearInterval(tick);
+    }, startDelay);
+    return () => clearTimeout(start);
+  }, [text, speed, startDelay]);
+
+  return { displayed, done };
+}
+
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
@@ -14,6 +41,7 @@ export default function Hero() {
 
   const [soundState, setSoundState] = useState<SoundState>('blocked');
   const { scrollTo } = useLenis();
+  const { displayed, done } = useTypewriter(TAGLINE);
 
   // ─── Initial autoplay ────────────────────────────────────────────────────
   useEffect(() => {
@@ -183,14 +211,46 @@ export default function Hero() {
         className="absolute top-0 left-0 right-0 z-20 flex items-end justify-between"
         style={{ padding: 'clamp(72px, 11vh, 120px) var(--gutter) 0' }}
       >
-        {/* Role */}
-        <h1
-          className="font-bold tracking-tight leading-none"
-          style={{ fontSize: 'clamp(1.75rem, 4vw, 3.25rem)', letterSpacing: '-0.045em' }}
-        >
-          {PROFILE.role}
-          <span style={{ color: 'var(--mute)' }}>.</span>
-        </h1>
+        {/* Role + description */}
+        <div>
+          <h1
+            className="font-bold tracking-tight leading-none"
+            style={{ fontSize: 'clamp(1.75rem, 4vw, 3.25rem)', letterSpacing: '-0.045em' }}
+          >
+            {PROFILE.role}
+            <span style={{ color: 'var(--mute)' }}>.</span>
+          </h1>
+          <p
+            style={{
+              fontFamily: 'Georgia, "Times New Roman", serif',
+              fontStyle: 'italic',
+              fontSize: 'clamp(0.8rem, 1.4vw, 1rem)',
+              color: 'var(--ink)',
+              opacity: 0.6,
+              marginTop: '0.4em',
+              letterSpacing: '0.01em',
+              lineHeight: 1.5,
+              maxWidth: '34ch',
+            }}
+          >
+            {displayed}
+            {/* blinking cursor — hidden once typing is done */}
+            {!done && (
+              <span
+                style={{
+                  display: 'inline-block',
+                  width: '1px',
+                  height: '1em',
+                  background: 'currentColor',
+                  marginLeft: '1px',
+                  verticalAlign: 'text-bottom',
+                  animation: 'blink 0.8s step-end infinite',
+                }}
+                aria-hidden="true"
+              />
+            )}
+          </p>
+        </div>
 
         {/* Sound button */}
         <button

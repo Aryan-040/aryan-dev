@@ -29,6 +29,13 @@ function SocialIcon({ id, size = 16 }: { id: string; size?: number }) {
           <path d="M8 20l-4-4" />
         </svg>
       );
+    case 'mail':
+      return (
+        <svg {...s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2" />
+          <path d="M2 7l10 7 10-7" />
+        </svg>
+      );
     default:
       return null;
   }
@@ -36,9 +43,10 @@ function SocialIcon({ id, size = 16 }: { id: string; size?: number }) {
 
 // ─── Social Links Data ────────────────────────────────────────────────────────
 const SOCIAL_LINKS = [
-  { id: 'github', label: 'Gh', href: PROFILE.github },
-  { id: 'linkedin', label: 'Li', href: PROFILE.linkedin },
-  { id: 'leetcode', label: 'Lc', href: PROFILE.leetcode },
+  { id: 'github',   label: 'GitHub',   href: PROFILE.github },
+  { id: 'linkedin', label: 'LinkedIn', href: PROFILE.linkedin },
+  { id: 'leetcode', label: 'LeetCode', href: PROFILE.leetcode },
+  { id: 'mail',     label: 'Email',    href: `mailto:${PROFILE.email}` },
 ] as const;
 
 // ─── Main component ───────────────────────────────────────────────────────────

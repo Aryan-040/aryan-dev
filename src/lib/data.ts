@@ -18,7 +18,7 @@ export const PROFILE = {
   leetcode: 'https://leetcode.com/u/Aryan4-03/',
   resume: '/Aryan_Singh_Resume.pdf',
   resumeSummary:
-    'Software Engineer with internship experience in backend development, and full-stack web applications. Proficient in Java, TypeScript, Node.js, React.js, LLM-integrated features and AWS. Deployed 5+ production applications end-to-end. AWS Certified Cloud Practitioner.',
+    'Software Engineer with internship experience in backend development, and full-stack web applications. Proficient in Java, TypeScript, Node.js, React.js, LLM-integrated features and AWS. Deployed 3 production applications end-to-end. AWS Certified Cloud Practitioner.',
   stats: {
     leetcodeProblems: 470,
     githubCommits: 500,
