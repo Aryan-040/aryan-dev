@@ -125,20 +125,20 @@ export interface Experience {
 }
 
 export const EXPERIENCE: Experience[] = [
-  {
-    id: 'indiatv',
-    type: 'work',
-    title: 'Data Engineering Intern',
-    organization: 'India TV',
-    location: 'Noida',
-    startDate: 'Dec 2025',
-    endDate: 'Jan 2026',
-    description: 'News & Media',
-    bullets: [
-      'Created reporting dashboards unifying 6 internal data sources, eliminating 2+ hours/day of manual report assembly for a 15-person editorial team.',
-      'Automated content tagging and routing with Python scripts, processing 500+ articles/week without manual intervention.',
-    ],
-  },
+  // {
+  //   id: 'indiatv',
+  //   type: 'work',
+  //   title: 'Data Engineering Intern',
+  //   organization: 'India TV',
+  //   location: 'Noida',
+  //   startDate: 'Dec 2025',
+  //   endDate: 'Jan 2026',
+  //   description: 'News & Media',
+  //   bullets: [
+  //     'Created reporting dashboards unifying 6 internal data sources, eliminating 2+ hours/day of manual report assembly for a 15-person editorial team.',
+  //     'Automated content tagging and routing with Python scripts, processing 500+ articles/week without manual intervention.',
+  //   ],
+  // },
   {
     id: 'sway',
     type: 'work',
