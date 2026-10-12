@@ -18,9 +18,9 @@ export const PROFILE = {
   leetcode: 'https://leetcode.com/u/Aryan4-03/',
   resume: '/Aryan_Singh_Resume.pdf',
   resumeSummary:
-    'Software Engineer with internship experience in backend development, and full-stack web applications. Proficient in Java, TypeScript, Node.js, React.js, LLM-integrated features and AWS. Deployed 3 production applications end-to-end. AWS Certified Cloud Practitioner.',
+    'Software Engineer with internship experience in backend development, and full-stack web applications. Proficient in Java, TypeScript, Node.js, React.js, LLM-integrated features and AWS. Deployed 3 production applications end-to-end. AWS Certified Cloud Practitioner. 500+ LeetCode problems solved · 500+ GitHub commits',
   stats: {
-    leetcodeProblems: 470,
+    leetcodeProblems: 500,
     githubCommits: 500,
   },
 } as const;
@@ -335,7 +335,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     label: 'Problems Solved',
     caption: 'Algorithmic challenges',
     detail: 'Data structures & algorithms',
-    value: 470,
+    value: 500,
     suffix: '+',
   },
   {
