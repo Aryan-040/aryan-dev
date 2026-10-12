@@ -252,6 +252,7 @@ export default function Hero() {
           </p>
         </div>
 
+
         {/* Sound button */}
         <button
           onClick={handleSoundToggle}
